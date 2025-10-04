@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu - Rangilo Rajwado</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <style>
+    /* --- Global Styles --- */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #fdfaf6;
+      color: #333;
+      padding-top: 70px;
+      /* To prevent content from being hidden by the fixed navbar */
+    }
+
+    /* --- Attractive Navbar Styles (from previous design) --- */
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.5rem;
+      color: #ffc107 !important;
+    }
+
+    .nav-link {
+      font-weight: 600;
+      margin: 0 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: #ffc107 !important;
+    }
+
+    .btn-warning {
+      font-weight: 600;
+      border-radius: 20px;
+      padding: 0.5rem 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-warning:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* --- Menu Page Header --- */
+    .menu-header {
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://images.pexels.com/photos/326279/pexels-photo-326279.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') no-repeat center center/cover;
+      padding: 60px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    .menu-header h1 {
+      font-weight: 700;
+      font-size: 3rem;
+    }
+
+    /* --- Enhanced Menu Card Styles --- */
+    .menu-card {
+      border: none;
+      border-radius: 15px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      position: relative;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    }
+
+    .menu-card img {
+      height: 150px;
+      /* Increased image height */
+      width: 100%;
+      object-fit: cover;
+    }
+
+    .menu-card .card-body {
+      padding: 15px;
+    }
+
+    .menu-card h6 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin: 0;
+      color: #333;
+    }
+
+    .fav-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(5px);
+      border-radius: 50%;
+      width: 35px;
+      height: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      color: #ff6f00;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+    }
+
+    .fav-icon:hover {
+      transform: scale(1.1);
+      color: #e65100;
+    }
+
+    /* --- Footer (from previous design for consistency) --- */
+    .main-footer {
+      background-color: #212529;
+      color: #fff;
+      padding: 40px 20px;
+    }
+
+    .main-footer h5 {
+      color: #ffc107;
+      margin-bottom: 15px;
+    }
+
+    .main-footer p,
+    .main-footer a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .main-footer a:hover {
+      color: #fff;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      border-top: 1px solid #444;
+      padding-top: 20px;
+      margin-top: 20px;
+    }
+
+    .text-position {
+      display: flex;
+      position: relative;
+      width: fit-content;
+      padding-bottom: 8px;
+
+      margin-left: auto;
+      margin-right: auto;
+
+    }
+
+    .text-position::after {
+      content: '';
+      position: absolute;
+      /* To position it relative to the .section-title container */
+      left: 0;
+      bottom: 0;
+      /* Places it at the very bottom of the container */
+      width: 100%;
+      /* The line's width will match the content's width */
+      height: 3px;
+      /* The thickness of the line */
+      background-color: #e74c3c;
+      /* The color of the line (red) */
+
+    }
+
+    .text-position h2 {
+
+      margin: 0;
+      /* Removes the browser's default margin */
+      font-family: sans-serif;
+      /* Font style */
+      font-size: 25px;
+      /* Size of the text */
+      color: #333;
+      /* Color of the text */
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Rangilo Rajwado</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="menu.html">Menu</a>
+          </li>
+        </ul>
+        <a href="contact.html" class="btn btn-warning ms-lg-3">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="menu-header">
+    <h1>Our Menu</h1>
+  </header>
+  <!-- Healthy Food -->
+
+  <div class="text-position">
+    <h3>🥗 Healthy Food</h3>
+  </div>
+  <div class="container my-5">
+    <div class="row g-4">
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://yummyindiankitchen.com/wp-content/uploads/2018/09/masala-corn-recipe-sweet-corn-masala.jpg"
+            alt="Makki ke Dane">
+          <div class="card-body">
+            <h6>Makki ke Dane</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img
+            src="https://cdn1.foodviva.com/static-content/food-images/salad-recipes/vegetable-salad-recipe/vegetable-salad-recipe.jpg"
+            alt="Mix Salad">
+          <div class="card-body">
+            <h6>Mix Salad</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img
+            src="https://img.freepik.com/premium-photo/hot-cream-tomato-soup-with-croutons-black-bowl-table-top-view_136344-1140.jpg"
+            alt="Tomato Soup">
+          <div class="card-body">
+            <h6>Tomato Soup</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://www.betterthanbouillon.com/wp-content/uploads/2018/06/Vegetarian-Vegetable-Soup.jpg"
+            alt="Vegetarian Soup">
+          <div class="card-body">
+            <h6>Vegetarian Soup</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img
+            src="https://cdn-prod.medicalnewstoday.com/content/images/articles/324/324763/bowl-of-healthy-popcorn.jpg"
+            alt="Popcorn">
+          <div class="card-body">
+            <h6>Popcorn</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://jalojog.com/wp-content/uploads/2024/04/Plain_Cold_Drink.jpg" alt="Cold Drink">
+          <div class="card-body">
+            <h6>Cold Drink</h6>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- Sweet Items -->
+  <div class="text-position">
+    <h3>🍨 Sweet Items</h3>
+  </div>
+  <div class="container my-5">
+    <div class="row g-4">
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://homecookingcollective.com/wp-content/uploads/2024/06/Shrikhand-Recipe-2.jpg"
+            alt="Shrikhand">
+          <div class="card-body">
+            <h6>Shrikhand</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://www.awesomecuisine.com/wp-content/uploads/2014/10/rasgulla-500x500.jpg" alt="Rasgulla">
+          <div class="card-body">
+            <h6>Rasgulla</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://www.funfoodfrolic.com/wp-content/uploads/2020/10/Suji-Halwa-2.jpg" alt="Suji Halwa">
+          <div class="card-body">
+            <h6>Suji Halwa</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://www.awesomecuisine.com/wp-content/uploads/2015/01/Grilled-Chocolate-Sandwich-500x500.jpg"
+            alt="Chocolate Sandwich">
+          <div class="card-body">
+            <h6>Choco Sandwich</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://www.shutterstock.com/image-photo/paneer-payasam-cottage-cheese-kheer-260nw-2052516326.jpg"
+            alt="Kesar Kheer">
+          <div class="card-body">
+            <h6>Kesar Kheer</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://cdn.cdnparenting.com/articles/2020/01/24153853/Carrot-Halwa-Recipe.webp" alt="Gajar Halwa">
+          <div class="card-body">
+            <h6>Gajar Halwa</h6>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Fast Foods -->
+
+  <div class="text-position">
+    <h3>🍕 Fast Foods</h3>
+  </div>
+  <div class="container my-5">
+    <div class="row g-4">
+
+
+
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://imgmediagumlet.lbb.in/media/2025/07/688b48a128c5ed2b5e2f4a14_1753958561150.jpg" alt="Pizza">
+          <div class="card-body">
+            <h6>Pizza</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://royalindianpakistani.com.au/wp-content/uploads/2024/08/vegMuchurin-1.jpeg" alt="Manchurian">
+          <div class="card-body">
+            <h6>Manchurian</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img
+            src="https://www.bharatmasala.com/wp-content/uploads/2025/01/freepik__candid-image-photography-natural-textures-highly-r__74418-896x565.jpeg"
+            alt="Pasta">
+          <div class="card-body">
+            <h6>Pasta</h6>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img
+            src="https://img.freepik.com/premium-photo/3d-photo-delicious-chowmein-noodles-illustration-made-with-generative-ai_999340-8736.jpg"
+            alt="Chow Mein">
+          <div class="card-body">
+            <h6>Chow Mein</h6>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://i.pinimg.com/736x/4e/50/97/4e50978e39926f9448467a12658012fa.jpg" alt="Panipuri">
+          <div class="card-body">
+            <h6>Panipuri</h6>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://www.cubesnjuliennes.com/wp-content/uploads/2020/07/Instant-Pot-Mumbai-Pav-Bhaji-Recipe.jpg"
+            alt="Pav Bhaji">
+          <div class="card-body">
+            <h6>Pav Bhaji</h6>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <!-- Healthy Food -->
+
+  <div class="text-position">
+    <h3>🥗 Healthy Food</h3>
+  </div>
+  <div class="container my-5">
+    <div class="row g-4">
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://yummyindiankitchen.com/wp-content/uploads/2018/09/masala-corn-recipe-sweet-corn-masala.jpg"
+            alt="Makki ke Dane">
+          <div class="card-body">
+            <h6>Makki ke Dane</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img
+            src="https://cdn1.foodviva.com/static-content/food-images/salad-recipes/vegetable-salad-recipe/vegetable-salad-recipe.jpg"
+            alt="Mix Salad">
+          <div class="card-body">
+            <h6>Mix Salad</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img
+            src="https://img.freepik.com/premium-photo/hot-cream-tomato-soup-with-croutons-black-bowl-table-top-view_136344-1140.jpg"
+            alt="Tomato Soup">
+          <div class="card-body">
+            <h6>Tomato Soup</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://www.betterthanbouillon.com/wp-content/uploads/2018/06/Vegetarian-Vegetable-Soup.jpg"
+            alt="Vegetarian Soup">
+          <div class="card-body">
+            <h6>Vegetarian Soup</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img
+            src="https://cdn-prod.medicalnewstoday.com/content/images/articles/324/324763/bowl-of-healthy-popcorn.jpg"
+            alt="Popcorn">
+          <div class="card-body">
+            <h6>Popcorn</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://jalojog.com/wp-content/uploads/2024/04/Plain_Cold_Drink.jpg" alt="Cold Drink">
+          <div class="card-body">
+            <h6>Cold Drink</h6>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- Sweet Items -->
+
+  <div class="text-position">
+    <h2>🍨 Sweet Items</h2>
+  </div>
+  <div class="container my-5">
+    <div class="row g-4">
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://homecookingcollective.com/wp-content/uploads/2024/06/Shrikhand-Recipe-2.jpg"
+            alt="Shrikhand">
+          <div class="card-body">
+            <h6>Shrikhand</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://www.awesomecuisine.com/wp-content/uploads/2014/10/rasgulla-500x500.jpg" alt="Rasgulla">
+          <div class="card-body">
+            <h6>Rasgulla</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://www.funfoodfrolic.com/wp-content/uploads/2020/10/Suji-Halwa-2.jpg" alt="Suji Halwa">
+          <div class="card-body">
+            <h6>Suji Halwa</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://www.awesomecuisine.com/wp-content/uploads/2015/01/Grilled-Chocolate-Sandwich-500x500.jpg"
+            alt="Chocolate Sandwich">
+          <div class="card-body">
+            <h6>Choco Sandwich</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://www.shutterstock.com/image-photo/paneer-payasam-cottage-cheese-kheer-260nw-2052516326.jpg"
+            alt="Kesar Kheer">
+          <div class="card-body">
+            <h6>Kesar Kheer</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://cdn.cdnparenting.com/articles/2020/01/24153853/Carrot-Halwa-Recipe.webp" alt="Gajar Halwa">
+          <div class="card-body">
+            <h6>Gajar Halwa</h6>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Fast Foods -->
+
+  <div class="text-position">
+    <h3>🍕 Fast Foods</h3>
+  </div>
+  <div class="container my-5">
+    <div class="row g-4">
+
+
+
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://imgmediagumlet.lbb.in/media/2025/07/688b48a128c5ed2b5e2f4a14_1753958561150.jpg" alt="Pizza">
+          <div class="card-body">
+            <h6>Pizza</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://royalindianpakistani.com.au/wp-content/uploads/2024/08/vegMuchurin-1.jpeg" alt="Manchurian">
+          <div class="card-body">
+            <h6>Manchurian</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img
+            src="https://www.bharatmasala.com/wp-content/uploads/2025/01/freepik__candid-image-photography-natural-textures-highly-r__74418-896x565.jpeg"
+            alt="Pasta">
+          <div class="card-body">
+            <h6>Pasta</h6>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img
+            src="https://img.freepik.com/premium-photo/3d-photo-delicious-chowmein-noodles-illustration-made-with-generative-ai_999340-8736.jpg"
+            alt="Chow Mein">
+          <div class="card-body">
+            <h6>Chow Mein</h6>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://i.pinimg.com/736x/4e/50/97/4e50978e39926f9448467a12658012fa.jpg" alt="Panipuri">
+          <div class="card-body">
+            <h6>Panipuri</h6>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://www.cubesnjuliennes.com/wp-content/uploads/2020/07/Instant-Pot-Mumbai-Pav-Bhaji-Recipe.jpg"
+            alt="Pav Bhaji">
+          <div class="card-body">
+            <h6>Pav Bhaji</h6>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Healthy Food -->
+
+  <div class="text-position">
+    <h3>🥗 Healthy Food</h3>
+  </div>
+  <div class="container my-5">
+    <div class="row g-4">
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://yummyindiankitchen.com/wp-content/uploads/2018/09/masala-corn-recipe-sweet-corn-masala.jpg"
+            alt="Makki ke Dane">
+          <div class="card-body">
+            <h6>Makki ke Dane</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img
+            src="https://cdn1.foodviva.com/static-content/food-images/salad-recipes/vegetable-salad-recipe/vegetable-salad-recipe.jpg"
+            alt="Mix Salad">
+          <div class="card-body">
+            <h6>Mix Salad</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img
+            src="https://img.freepik.com/premium-photo/hot-cream-tomato-soup-with-croutons-black-bowl-table-top-view_136344-1140.jpg"
+            alt="Tomato Soup">
+          <div class="card-body">
+            <h6>Tomato Soup</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://www.betterthanbouillon.com/wp-content/uploads/2018/06/Vegetarian-Vegetable-Soup.jpg"
+            alt="Vegetarian Soup">
+          <div class="card-body">
+            <h6>Vegetarian Soup</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img
+            src="https://cdn-prod.medicalnewstoday.com/content/images/articles/324/324763/bowl-of-healthy-popcorn.jpg"
+            alt="Popcorn">
+          <div class="card-body">
+            <h6>Popcorn</h6>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-6 col-md-4 col-lg-3">
+        <div class="card menu-card">
+          <i class="bi bi-heart fav-icon"></i>
+          <img src="https://jalojog.com/wp-content/uploads/2024/04/Plain_Cold_Drink.jpg" alt="Cold Drink">
+          <div class="card-body">
+            <h6>Cold Drink</h6>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <footer class="main-footer">
+    <div class="container">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6">
+          <h5>Contact Us</h5>
+          <p class="mb-1">📍 Rangilo Rajwado, Sirohi</p>
+          <p class="mb-1">📞 +91-70233 91135</p>
+          <p class="mb-1">✉ info@apnarestaurant.com</p>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <h5>Quick Links</h5>
+          <ul class="list-unstyled">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <h5>Follow Us</h5>
+          <ul class="list-unstyled">
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="mb-0">© 2025 Rangilo Rajwado | All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
